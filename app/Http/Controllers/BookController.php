@@ -59,12 +59,11 @@ class BookController extends Controller
             );
         }
 
-        //book::create($input);
+        book::create($input);
 
         return response()->json(
             [
-                'Book created successfully',
-                $input
+                'Book created successfully'
             ],
             201
         );
@@ -120,9 +119,7 @@ class BookController extends Controller
         if ($validator -> fails()){
             return response()->json(
                 [
-                    $validator->errors(),
-                    $input,
-                    'Update method'
+                    $validator->errors()
                 ],
                 400
             );

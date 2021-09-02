@@ -16,6 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/me', [AuthController::class,'me']);
+//Route::get('/me', [AuthController::class,'me']);
 
 Route::apiResource('/books', BookController::class);
