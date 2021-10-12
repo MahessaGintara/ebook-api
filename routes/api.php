@@ -21,6 +21,14 @@ use App\Http\Controllers\BookController;
 
 Route::get('/me', [AuthController::class,'me']);
 
-Route::apiResource('/books', BookController::class);
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
 
-Route::apiResource('/authors', AuthorController::class);
+Route::group(
+    ['middleware' => ['auth:sanctum']],
+    function(){
+        Route::apiResource('/books', BookController::class);
+        Route::apiResource('/authors', AuthorController::class);
+        Route::post('/logout', [AuthController::class, 'logout']);
+    }
+);

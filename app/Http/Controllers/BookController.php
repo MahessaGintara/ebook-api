@@ -44,7 +44,7 @@ class BookController extends Controller
         $validator = Validator::make(
             $input,
             [
-                'title' => 'required',
+                'title' => 'required |unique:books,title',
                 'description' => 'required',
                 'author' => 'required',
                 'publisher' => 'required',
